@@ -1,0 +1,19 @@
+name: tensorml
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - python
+  - pip
+  - pip:
+    - transformers
+    - einops
+    - accelerate
+    - torch
+    - torchvision
+    - torchaudio
+    - python-multipart
+  - cudatoolkit
+  - fastapi
+  - uvicorn # web server
