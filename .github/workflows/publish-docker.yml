@@ -16,12 +16,12 @@ jobs:
       uses: docker/login-action@v1 
       with:
         registry: ghcr.io
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.GITHUB_REGISTRY_TOKEN }}  # Changed from GITHUB_TOKEN to GITHUB_REGISTRY_TOKEN
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
         context: .
         push: true
-        tags: ghcr.io/galleonai-co/botafogo:latest  # Changed to use dynamic repository name and ref
+        tags: ghcr.io/${{ github.actor }}/botafogo:latest
